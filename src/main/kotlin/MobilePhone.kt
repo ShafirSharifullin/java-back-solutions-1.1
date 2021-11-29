@@ -8,9 +8,18 @@ class MobilePhone(var myNumber: String, var myContacts: MutableList<Contact> = m
         return false
     }
 
+    fun updateContact(contactOld: Contact, contactNew: Contact): Boolean {
+        var indexContact = findContact(contactOld)
+        if (indexContact != -1) {
+            myContacts.set(indexContact, contactNew)
+            return true
+        }
+        return false
+    }
+
     fun removeContact(contact: Contact): Boolean {
         var indexContact = findContact(contact)
-        if(indexContact != -1) {
+        if (indexContact != -1) {
             myContacts.removeAt(indexContact)
             return true
         }
